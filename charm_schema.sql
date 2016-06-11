@@ -1,6 +1,6 @@
 ---------------------------------------------
 -- Export file for user JAMES@XE           --
--- Created by James on 10-Jun-16, 22:55:08 --
+-- Created by James on 11-Jun-16, 00:07:56 --
 ---------------------------------------------
 
 set define off
@@ -274,6 +274,17 @@ create global temporary table JAMES.TEMP_TBL
 on commit delete rows;
 
 prompt
+prompt Creating sequence STOCK_REC_SEQ
+prompt ===============================
+prompt
+create sequence JAMES.STOCK_REC_SEQ
+minvalue 1
+maxvalue 9999999999999999
+start with 42
+increment by 1
+cache 20;
+
+prompt
 prompt Creating type OKEYVALUEREC
 prompt ==========================
 prompt
@@ -358,9 +369,11 @@ prompt Creating package CHARM_PKG
 prompt ==========================
 prompt
 create or replace package james.charm_pkg is
+  function return_errors_fnc(p_input in number) return varchar2;
+  function try_to_number_fnc(p_input in varchar2) return boolean;
   procedure buy_stock_prc(p_username in varchar2, p_items in varchar2);
   function price_fnc(p_itemid in varchar2) return number;
-  function item_possible_fnc(p_itemid in varchar2) return boolean;
+--  function item_possible_fnc(p_itemid in varchar2) return boolean;
   function item_id_check_fnc(p_itemid in varchar2) return varchar2;
 end charm_pkg;
 /
@@ -654,7 +667,42 @@ prompt Creating package body CHARM_PKG
 prompt ===============================
 prompt
 create or replace package body james.charm_pkg is
+  
+  /* Error Codes!
+     Returns the string for an error code provided, or null if input
+     is not an error code. */
+     
+  function return_errors_fnc(p_input in number) return varchar2 is
+    
+  begin
+    case p_input
+      when -1 then return 'Item path not possible in item_tree';
+      when -2 then return 'Item ID contains incorrect abbreviations';
+      when -3 then return 'An enchantment''s level was higher than the max level';
+      else return null;
+    end case;
+  end return_errors_fnc;
+  
+  /* try_to_number_fnc(string)
+  
+     Tries to cast a string to a number, returning boolean of if succeeds.
+     Used for error handling. */
+     
+   function try_to_number_fnc(p_input in varchar2) return boolean is
+     var number;
+   begin
+     var := to_number(p_input);
+     return true;
+   exception
+     when VALUE_ERROR then return false;
+   end try_to_number_fnc;
 
+  /* buy_stock_prc(user, items)
+  
+     Inputs the username of enchanter and a string of space-deliminated
+     item IDs. Item IDs can also have numbers in front of them to
+     indicated that number of identical items, up to 99. If you have
+     100 items to add at once please just dont. */
   procedure buy_stock_prc(p_username in varchar2, p_items in varchar2) is 
     count_chars number;
     item_count number;
@@ -674,6 +722,10 @@ create or replace package body james.charm_pkg is
           item_count := to_number(substr(c.column_value, 0, count_chars));
         end if;
         item := item_id_check_fnc(substr(c.column_value, -(length (c.column_value) - count_chars)));
+        if try_to_number_fnc(item) then
+          dbms_output.put_line(return_errors_fnc(to_number(item)));
+          return;
+        end if;
         for i in 1..item_count
             loop
               tbl.extend;
@@ -684,6 +736,10 @@ create or replace package body james.charm_pkg is
     for c in (select col from table(tbl))
       loop
         item_price := price_fnc(c.col);
+        if item_price < 0 then
+          dbms_output.put_line(return_errors_fnc(item));
+          return;
+        end if;
         payment := payment + payment_constant * item_price;
         insert into stocking_records (name, item_id, payment) values (p_username, c.col, payment_constant * item_price);
         
@@ -703,8 +759,12 @@ create or replace package body james.charm_pkg is
       dbms_output.put_line('/mail payment to:' || p_username || ' message:' || message || ' amount:' || payment);
       
       commit;
-    
+      
   end buy_stock_prc;
+
+  /* price_fnc(itemID)
+  
+     Returns the price of the item provided, or an error code. */
 
   function price_fnc(p_itemid in varchar2) return number is
     itemid varchar2(25) := upper(p_itemid);
@@ -726,6 +786,7 @@ create or replace package body james.charm_pkg is
     elsif item_check = -2 then
       return -2;
     end if;
+    itemid := item_check;
     for i in 1..(length(itemid)/3)
       loop
         tbl.extend;
@@ -759,7 +820,10 @@ create or replace package body james.charm_pkg is
 
   end price_fnc;
   
-  function item_possible_fnc(p_itemid in varchar2) return boolean is
+/*  Commented out because not needed, but still here because might
+    eventually be needed if something doesn't work with revised version...
+
+    function item_possible_fnc(p_itemid in varchar2) return boolean is
     itemid varchar2(30) := upper(p_itemid);
     full_name varchar2(30);
     item_type varchar2(15);
@@ -809,8 +873,21 @@ create or replace package body james.charm_pkg is
       
     return false;
     
-  end item_possible_fnc;
+  end item_possible_fnc; */
       
+  /* item_id_check_fnc(itemID)
+     
+     Awesome lil function! Returns an item ID or an error code.
+     
+     The item ID is checked to see if the specific item is possible,
+     based on item_tree. If not possible, returns an error code
+     corresponding to why it is not possible.
+     
+     If it IS possible, it returns the same item ID, but with the
+     enchants in order as they are from root to node in item_tree.
+     This helps to keep all item IDs inputted to the database identical
+     so that PICUN3EF4 is the same as PICEF4UN3. #IdiotProofing */
+  
   function item_id_check_fnc(p_itemid in varchar2) return varchar2 is
     itemid varchar2(30) := upper(p_itemid);
     full_name varchar2(30);
@@ -895,6 +972,22 @@ create or replace type body james.oKeyValueTbl is
   end;
   
 end;
+/
+
+prompt
+prompt Creating trigger STOCK_REC_TRIG
+prompt ===============================
+prompt
+create or replace trigger james.stock_rec_trig
+  before insert
+  on stocking_records 
+  for each row
+declare
+  -- local variables here
+begin
+  :new.recnum := stock_rec_seq.nextval;
+  :new.date_time := sysdate;
+end stock_rec_trig;
 /
 
 
