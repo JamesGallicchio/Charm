@@ -1,6 +1,6 @@
 ---------------------------------------------
 -- Export file for user JAMES@XE           --
--- Created by James on 11-Jun-16, 00:07:56 --
+-- Created by James on 11-Jun-16, 16:18:48 --
 ---------------------------------------------
 
 set define off
@@ -268,7 +268,7 @@ prompt
 create global temporary table JAMES.TEMP_TBL
 (
   sort NUMBER,
-  name VARCHAR2(15),
+  name VARCHAR2(25),
   abbr VARCHAR2(3)
 )
 on commit delete rows;
@@ -781,10 +781,12 @@ create or replace package body james.charm_pkg is
   begin
     
     item_check := item_id_check_fnc(itemid);
-    if item_check = -1 then
-      return -1;
-    elsif item_check = -2 then
-      return -2;
+    if try_to_number_fnc(item_check) then
+      if item_check = -1 then
+        return -1;
+      elsif item_check = -2 then
+        return -2;
+      end if;
     end if;
     itemid := item_check;
     for i in 1..(length(itemid)/3)
@@ -894,7 +896,7 @@ create or replace package body james.charm_pkg is
     item_type varchar2(30);
     current_id number;
     parent_id number;
-    ench_name varchar2(15);
+    ench_name varchar2(25);
     total_recs number;
     rec_count number;
     rec_zero number;
