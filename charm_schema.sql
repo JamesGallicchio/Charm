@@ -69,7 +69,7 @@ create table if not exists CHARM.PRICES
   blast_protection      INT,
   respiration           INT,
   depth_strider         INT,
-  powera                INT,
+  power                INT,
   punch                 INT,
   flame                 INT,
   infinity              INT,
