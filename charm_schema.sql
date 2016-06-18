@@ -39,7 +39,7 @@ create table if not exists CHARM.ITEM_PRICES
 
 create table if not exists CHARM.ITEM_TREE
 (
-  id     INT not null,
+  id     INT not null auto_increment,
   parent INT,
   name   VARCHAR(25) not null,
   primary key (id)
@@ -69,7 +69,7 @@ create table if not exists CHARM.PRICES
   blast_protection      INT,
   respiration           INT,
   depth_strider         INT,
-  power                INT,
+  power                 INT,
   punch                 INT,
   flame                 INT,
   infinity              INT,
@@ -82,7 +82,7 @@ create table if not exists CHARM.PRICES
 
 create table if not exists CHARM.STOCKING_RECORDS
 (
-  recnum    INT not null,
+  recnum    INT not null auto_increment,
   name      VARCHAR(20) not null, -- Name of enchanter
   item_id   VARCHAR(20) not null, -- ID of enchanted item
   payment   FLOAT not null,       -- Payment made for item
