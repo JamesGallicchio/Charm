@@ -86,7 +86,7 @@ create table if not exists CHARM.STOCKING_RECORDS
   name      VARCHAR(20) not null, -- Name of enchanter
   item_id   VARCHAR(20) not null, -- ID of enchanted item
   payment   FLOAT not null,       -- Payment made for item
-  date_time TIMESTAMP not null,
+  date_time TIMESTAMP not null default current_timestamp,
   primary key (recnum)
 );
 
