@@ -1,14 +1,5 @@
-﻿prompt PL/SQL Developer import file
-prompt Created on Saturday, 18 June, 2016 by James
-set feedback off
-set define off
-prompt Disabling triggers for ITEM_PRICES...
-alter table ITEM_PRICES disable all triggers;
-prompt Disabling triggers for ITEM_TREE...
-alter table ITEM_TREE disable all triggers;
-prompt Disabling triggers for PRICES...
-alter table PRICES disable all triggers;
-prompt Loading ITEM_PRICES...
+use CHARM;
+
 insert into ITEM_PRICES (abbr, price, name)
 values ('PIC', 90, 'pickaxe');
 insert into ITEM_PRICES (abbr, price, name)
@@ -39,9 +30,7 @@ insert into ITEM_PRICES (abbr, price, name)
 values ('BOK', 5, 'book');
 insert into ITEM_PRICES (abbr, price, name)
 values ('ELY', 5000, 'elytra');
-commit;
-prompt 15 records loaded
-prompt Loading ITEM_TREE...
+
 insert into ITEM_TREE (id, parent, name)
 values (0, null, 'root');
 insert into ITEM_TREE (id, parent, name)
@@ -242,8 +231,8 @@ insert into ITEM_TREE (id, parent, name)
 values (104, 100, 'projectile_protection');
 insert into ITEM_TREE (id, parent, name)
 values (103, 100, 'blast_protection');
-commit;
-prompt 100 records committed...
+
+
 insert into ITEM_TREE (id, parent, name)
 values (102, 100, 'fire_protection');
 insert into ITEM_TREE (id, parent, name)
@@ -278,9 +267,8 @@ insert into ITEM_TREE (id, parent, name)
 values (115, 15, 'mending');
 insert into ITEM_TREE (id, parent, name)
 values (116, 115, 'unbreaking');
-commit;
-prompt 117 records loaded
-prompt Loading PRICES...
+
+
 insert into PRICES (ench_level, unbreaking, efficiency, silk_touch, fortune, looting, sharpness, knockback, smite, bane_of_arthropods, fire_aspect, protection, thorns, aqua_affinity, fire_protection, projectile_protection, feather_falling, blast_protection, respiration, depth_strider, power, punch, flame, infinity, luck_of_the_sea, lure, frost_walker)
 values (1, 50, 20, 300, 80, 100, 10, 20, 10, 10, 40, 10, 40, 100, 7.5, 7.5, 10, 5, 20, 30, 10, 20, 100, 400, 10, 10, 100);
 insert into PRICES (ench_level, unbreaking, efficiency, silk_touch, fortune, looting, sharpness, knockback, smite, bane_of_arthropods, fire_aspect, protection, thorns, aqua_affinity, fire_protection, projectile_protection, feather_falling, blast_protection, respiration, depth_strider, power, punch, flame, infinity, luck_of_the_sea, lure, frost_walker)
@@ -291,14 +279,5 @@ insert into PRICES (ench_level, unbreaking, efficiency, silk_touch, fortune, loo
 values (4, null, 160, null, null, null, 150, null, 100, 100, null, 150, null, null, 112.5, 112.5, 150, 75, null, null, 100, null, null, null, null, null, null);
 insert into PRICES (ench_level, unbreaking, efficiency, silk_touch, fortune, looting, sharpness, knockback, smite, bane_of_arthropods, fire_aspect, protection, thorns, aqua_affinity, fire_protection, projectile_protection, feather_falling, blast_protection, respiration, depth_strider, power, punch, flame, infinity, luck_of_the_sea, lure, frost_walker)
 values (5, null, 320, null, null, null, 300, null, 200, 200, null, null, null, null, null, null, null, null, null, null, 200, null, null, null, null, null, null);
-commit;
-prompt 5 records loaded
-prompt Enabling triggers for ITEM_PRICES...
-alter table ITEM_PRICES enable all triggers;
-prompt Enabling triggers for ITEM_TREE...
-alter table ITEM_TREE enable all triggers;
-prompt Enabling triggers for PRICES...
-alter table PRICES enable all triggers;
-set feedback on
-set define on
-prompt Done.
+
+
