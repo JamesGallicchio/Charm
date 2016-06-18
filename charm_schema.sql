@@ -75,6 +75,7 @@ create table if not exists CHARM.PRICES
   infinity              INT,
   luck_of_the_sea       INT,
   lure                  INT,
+  frost_walker          INT,
   primary key (ench_level)
 );
 
