@@ -26,31 +26,75 @@ public class Charm extends HttpServlet {
       throw new ServletException(ne);
     }
   }
+  
+
+  private String item_id_check(String input) throws Exception {
+      for (int i = 0; i < input.length() / 3; i++) {
+        if (i == 0) {
+            // check if first three letters correspond to an item
+            String item = input.substring(0, 3);
+        
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("select count(*) from ITEM_PRICES where abbr = \'" + item + "\'");
+            
+            if (rs.next()) {
+                int count = rs.getInt(1);
+
+                if (count == 0) {
+                    throw new Exception(); // TODO: custom exception here to say that item is invalid
+                }
+            }
+            
+            rs.close();
+            stmt.close();
+        } 
+        else {
+            String enchant = input.substring(3*i, 3*i+2);
+            int enchantLevel = Integer.parseInt(input.substring(3*i+2, 3*i+3)); // TODO: handle not being an int;
+        
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("select name, max_level from ENCHANT_INFO where abbr = \'" + enchant + "\'");
+            
+            if (rs.next()) {
+                String full_name = rs.getString(1);
+                int maxEnchant = rs.getInt(2);
+                
+                if (enchantLevel > maxEnchant) {
+                    throw new Exception(); // TODO: custom exception to say that the enchantment level is wrong
+                }
+                
+            } else {
+                throw new Exception(); // TODO: custom exception to say that the enchantment doesn't exist
+            }
+            
+            // TODO: make sure these run if exceptions get thrown
+            rs.close();
+            stmt.close();
+            
+        }
+     }
+
+
+     return input;
+  }
 
   public void doGet (HttpServletRequest req, HttpServletResponse resp)
                      throws ServletException, IOException {
     
     String queryVal = req.getParameter("id");
 
-    String query = "select name from ENCHANT_INFO where abbr = \'" + queryVal + "\'";
-
     resp.setContentType("text/plain");
-
-    PrintWriter out = resp.getWriter();
+    PrintWriter out = resp.getWriter();    
 
     try {
-      Statement stmt = conn.createStatement();
-      ResultSet rs = stmt.executeQuery(query);
-
-      while (rs.next()) {
-          out.println(rs.getString(1));
-      }
-        
-      rs.close();
-      stmt.close();
+        String itemid = item_id_check(queryVal);
+        out.println(itemid);
     }
     catch (SQLException se) {
-      se.printStackTrace(out);
+        se.printStackTrace(out);
+    }
+    catch (Exception e) {
+        e.printStackTrace(out);
     }
 
   }
