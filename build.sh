@@ -11,8 +11,6 @@ tomcatWebappLocation="/var/lib/tomcat7/webapps"
 
 cd "${charmDir}"
 
-## compile jars
-
 echo "== Compiling Java servlets"
 if [ ! -d webapp/WEB-INF/classes ]
 then
