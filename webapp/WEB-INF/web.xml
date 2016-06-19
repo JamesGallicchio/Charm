@@ -18,6 +18,11 @@
         <resource-env-type>javax.sql.DataSource</resource-env-type>
     </resource-env-ref>
     
+    <resource-env-ref>
+        <resource-env-ref-name>jdbc/charm</resource-env-ref-name>
+        <resource-env-type>javax.sql.DataSource</resource-env-type>
+    </resource-env-ref>
+    
     <servlet>
         <servlet-name>TestServlet</servlet-name>
         <jsp-file>/test.jsp</jsp-file>
@@ -43,6 +48,18 @@
        <servlet-name>DatabaseTest</servlet-name>
        <url-pattern>/DBTest</url-pattern>
     </servlet-mapping>
+    
+    
+    <servlet>
+       <servlet-name>Charm</servlet-name>
+       <servlet-class>charm.Charm</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+       <servlet-name>Charm</servlet-name>
+       <url-pattern>/Charm</url-pattern>
+    </servlet-mapping>
+    
 
     <session-config>
       <session-timeout>30</session-timeout>    <!-- 30 minutes -->
