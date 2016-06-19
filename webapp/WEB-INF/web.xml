@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app version="2.4"
+  xmlns="http://java.sun.com/xml/ns/j2ee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+    http://java.sun.com/xml/ns/j2ee
+    http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+    
+    <display-name>Charm</display-name>
+    <description>
+      A collection of servlets for the Nerdcrafteria Enchanting
+      Guild's stocking process
+    </description>
+
+    <resource-env-ref>
+        <resource-env-ref-name>jdbc/test</resource-env-ref-name>
+        <resource-env-type>javax.sql.DataSource</resource-env-type>
+    </resource-env-ref>
+    
+    <servlet>
+        <servlet-name>TestServlet</servlet-name>
+        <jsp-file>/test.jsp</jsp-file>
+    </servlet>
+
+    <servlet>
+       <servlet-name>HelloWorld</servlet-name>
+       <servlet-class>charm.HelloWorld</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+       <servlet-name>HelloWorld</servlet-name>
+       <url-pattern>/HelloWorld</url-pattern>
+    </servlet-mapping>
+
+
+    <session-config>
+      <session-timeout>30</session-timeout>    <!-- 30 minutes -->
+    </session-config>
+
+
+</web-app>
+

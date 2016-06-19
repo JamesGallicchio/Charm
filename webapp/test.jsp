@@ -9,11 +9,7 @@
 </head>
 <body>
  
-<sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
-     url="jdbc:mysql://localhost/TEST"
-     user="root" password=""/>
- 
-<sql:query dataSource="${snapshot}" var="result">
+<sql:query var="result" dataSource="jdbc/test">
 SELECT * from Employees;
 </sql:query>
  
