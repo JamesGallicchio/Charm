@@ -1,5 +1,61 @@
 use CHARM;
 
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('protection', 'PR', 4);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('fire_protection', 'FP', 4);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('feather_falling', 'FF', 4);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('blast_protection', 'BP', 4);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('projectile_protection', 'PP', 4);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('respiration', 'RE', 3);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('aqua_affinity', 'AA', 1);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('thorns', 'TH', 3);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('depth_strider', 'DS', 3);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('frost_walker', 'FW', 2);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('sharpness', 'SH', 5);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('smite', 'SM', 5);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('bane_of_arthropods', 'BA', 5);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('knockback', 'KN', 2);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('fire_aspect', 'FA', 2);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('looting', 'LO', 3);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('efficiency', 'EF', 5);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('silk_touch', 'ST', 1);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('unbreaking', 'UN', 3);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('fortune', 'FO', 3);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('power', 'PO', 5);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('punch', 'PU', 2);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('flame', 'FL', 1);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('infinity', 'IN', 1);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('luck_of_the_sea', 'LS', 3);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('lure', 'LU', 3);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('mending', 'ME', 1);
+
+
 insert into ITEM_PRICES (abbr, price, name)
 values ('PIC', 90, 'pickaxe');
 insert into ITEM_PRICES (abbr, price, name)
@@ -277,5 +333,4 @@ insert into PRICES (ench_level, unbreaking, efficiency, silk_touch, fortune, loo
 values (4, null, 160, null, null, null, 150, null, 100, 100, null, 150, null, null, 112.5, 112.5, 150, 75, null, null, 100, null, null, null, null, null, null);
 insert into PRICES (ench_level, unbreaking, efficiency, silk_touch, fortune, looting, sharpness, knockback, smite, bane_of_arthropods, fire_aspect, protection, thorns, aqua_affinity, fire_protection, projectile_protection, feather_falling, blast_protection, respiration, depth_strider, power, punch, flame, infinity, luck_of_the_sea, lure, frost_walker)
 values (5, null, 320, null, null, null, 300, null, 200, 200, null, null, null, null, null, null, null, null, null, null, 200, null, null, null, null, null, null);
-
 
