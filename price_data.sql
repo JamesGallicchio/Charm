@@ -2,12 +2,71 @@
 prompt Created on Saturday, 18 June, 2016 by James
 set feedback off
 set define off
+prompt Disabling triggers for ENCHANT_INFO...
+alter table ENCHANT_INFO disable all triggers;
 prompt Disabling triggers for ITEM_PRICES...
 alter table ITEM_PRICES disable all triggers;
 prompt Disabling triggers for ITEM_TREE...
 alter table ITEM_TREE disable all triggers;
 prompt Disabling triggers for PRICES...
 alter table PRICES disable all triggers;
+prompt Loading ENCHANT_INFO...
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('protection', 'PR', 4);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('fire_protection', 'FP', 4);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('feather_falling', 'FF', 4);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('blast_protection', 'BP', 4);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('projectile_protection', 'PP', 4);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('respiration', 'RE', 3);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('aqua_affinity', 'AA', 1);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('thorns', 'TH', 3);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('depth_strider', 'DS', 3);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('frost_walker', 'FW', 2);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('sharpness', 'SH', 5);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('smite', 'SM', 5);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('bane_of_arthropods', 'BA', 5);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('knockback', 'KN', 2);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('fire_aspect', 'FA', 2);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('looting', 'LO', 3);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('efficiency', 'EF', 5);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('silk_touch', 'ST', 1);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('unbreaking', 'UN', 3);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('fortune', 'FO', 3);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('power', 'PO', 5);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('punch', 'PU', 2);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('flame', 'FL', 1);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('infinity', 'IN', 1);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('luck_of_the_sea', 'LS', 3);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('lure', 'LU', 3);
+insert into ENCHANT_INFO (name, abbr, max_level)
+values ('mending', 'ME', 1);
+commit;
+prompt 27 records loaded
 prompt Loading ITEM_PRICES...
 insert into ITEM_PRICES (abbr, price, name)
 values ('PIC', 90, 'pickaxe');
@@ -293,6 +352,8 @@ insert into PRICES (ench_level, unbreaking, efficiency, silk_touch, fortune, loo
 values (5, null, 320, null, null, null, 300, null, 200, 200, null, null, null, null, null, null, null, null, null, null, 200, null, null, null, null, null, null);
 commit;
 prompt 5 records loaded
+prompt Enabling triggers for ENCHANT_INFO...
+alter table ENCHANT_INFO enable all triggers;
 prompt Enabling triggers for ITEM_PRICES...
 alter table ITEM_PRICES enable all triggers;
 prompt Enabling triggers for ITEM_TREE...
