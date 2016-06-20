@@ -1,8 +1,10 @@
 if [ ! -f "charm_schema.sql" ]
-then
+  then
     echo "Error: not in Charm directory. Please change directory to repository root"
     exit 1
 fi
+
+git pull
 
 charmDir=`pwd`
 tomcatLibDir="/usr/share/tomcat7/lib"
@@ -13,10 +15,13 @@ cd "${charmDir}"
 
 echo "== Compiling Java servlets"
 if [ ! -d webapp/WEB-INF/classes ]
-then
+  then
     echo " * Creating directory WEB-INF/classes/"
-    mkdir webapp/WEB-INF/classes
+  else
+    rm -R webapp/WEB-INF/classes
 fi
+
+mkdir webapp/WEB-INF/classes
 
 cd "${charmDir}/webapp/src"
 javac -cp "${tomcatLibDir}/servlet-api.jar" -d "../WEB-INF/classes/" charm/*.java
