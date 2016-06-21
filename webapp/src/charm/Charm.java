@@ -132,7 +132,7 @@ public class Charm extends HttpServlet {
             }
 
             // Check if this is the right path
-            if (foundEnchs.size() == enchList.size() && itemAbbr == foundItem) {
+            if (foundEnchs.size() == enchList.size() && itemAbbr.equals(foundItem)) {
                 // Loop through found enchants from last to first (closest to root -> closest to node)
                 // Constructs new item ID sorted properly
                 StringBuilder newItemID = new StringBuilder(itemAbbr);
