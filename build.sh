@@ -5,7 +5,6 @@ then
 fi
 
 charmDir=`pwd`
-tomcatLibDir="/usr/share/tomcat7/lib"
 webappName="charm"
 tomcatWebappLocation="/var/lib/tomcat7/webapps"
 
@@ -19,7 +18,7 @@ then
 fi
 
 cd "${charmDir}/webapp/src"
-javac -cp "${tomcatLibDir}/servlet-api.jar" -d "../WEB-INF/classes/" charm/*.java
+javac -cp "${charmDir}/webapp/WEB-INF/lib/servlet-api.jar" -d "../WEB-INF/classes/" charm/*.java
 
 
 echo "== Deploying webapp (requires sudo)"
