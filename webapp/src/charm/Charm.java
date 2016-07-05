@@ -1,12 +1,14 @@
 package charm;
 
 import javax.servlet.*;
+import javax.servlet.http.*;
 import javax.naming.*;  // for JNDI
 import javax.sql.*;     // extended JDBC interfaces (such as data sources)
 import java.sql.*;      // standard JDBC interfaces
 import java.io.*;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
+import java.util.ArrayList;
 
 public class Charm extends HttpServlet {
 
@@ -31,7 +33,7 @@ public class Charm extends HttpServlet {
 
     private String item_id_check(String i_input) throws Exception {
 
-        String input = i_input.upperCase();
+        String input = i_input.toUpperCase();
         ArrayList<String> enchList = new ArrayList<String>(); // Array of enchant abbreviations
 
         // check if first three letters correspond to an item
@@ -40,8 +42,8 @@ public class Charm extends HttpServlet {
         Statement itemStmt = conn.createStatement();
         ResultSet itemCount = itemStmt.executeQuery("select count(*) from ITEM_PRICES where abbr = \'" + itemAbbr + "\'");
 
-        if (itemType.next()) {
-            int count = itemType.getInt(1);
+        if (itemCount.next()) {
+            int count = itemCount.getInt(1);
 
             if (count == 0) {
                 throw new Exception(); // TODO: custom exception here to say that item is invalid
@@ -52,11 +54,13 @@ public class Charm extends HttpServlet {
         itemCount.close();
 
         for (int i = 1; i < input.length() / 3; i++) { // Loop through ench abbreviations of ItemID
-
+            
+            int enchantLevel;
+            
             // Get ench level of current ench
             String enchAbbr = input.substring(3*i, 3*i+2);
             try {
-                int enchantLevel = Integer.parseInt(input.substring(3 * i + 2, 3 * i + 3));
+                enchantLevel = Integer.parseInt(input.substring(3 * i + 2, 3 * i + 3));
             } catch (NumberFormatException nfe) {
                 throw new Exception(); // TODO: custom exception to say something is wrong with ID format
             }
@@ -84,7 +88,7 @@ public class Charm extends HttpServlet {
             enchList.add(enchAbbr);
         }
 
-        ArrayList<String> possibleNodes = new ArrayList<String>(); // Array of possible starting nodes in item_tree
+        ArrayList<Integer> possibleNodes = new ArrayList<Integer>(); // Array of possible starting nodes in item_tree
 
         // Cycle through enchants in item ID
         for (String ench : enchList) {
@@ -106,7 +110,7 @@ public class Charm extends HttpServlet {
         // Cycle through possible nodes until find one (if one is found) that works
         for (int nodeId : possibleNodes) {
             int id = nodeId;
-            String foundItem;
+            String foundItem = ""; // adding default value due to compiler complaining about possibly not being initialised
 
             ArrayList<String> foundEnchs = new ArrayList<String>();
             while (id != 0) { // Stops when reaches root
@@ -118,12 +122,15 @@ public class Charm extends HttpServlet {
                 String abbr = idInfo.getString(2);
 
                 // Gets item type of this node-root path
-                if (parentId == 0)
+                if (parentId == 0) {
                     foundItem = abbr;
+                }
 
                 // Add enchant at this node to foundEnchList if name is in enchList
-                if (enchList.contains(abbr)
-                    foundEnchs.add();
+                if (enchList.contains(abbr)) {
+                    foundEnchs.add(abbr);
+                }
+                
                 // Move to parent and repeat
                 id = parentId;
 
@@ -136,12 +143,12 @@ public class Charm extends HttpServlet {
                 // Loop through found enchants from last to first (closest to root -> closest to node)
                 // Constructs new item ID sorted properly
                 StringBuilder newItemID = new StringBuilder(itemAbbr);
-                for (i = foundEnchs.size() - 1; i > -1; i--) {
+                for (int i = foundEnchs.size() - 1; i > -1; i--) {
                     newItemID.append(foundEnchs.get(i));
                     // Get ench level of original enchant- RegEx woooo
                     String REGEX = "(?:" + foundEnchs.get(i) + ")(.)"; //
-                    Pattern pattern = new Pattern.compile(REGEX);
-                    Matcher matcher = new pattern.matcher(input);
+                    Pattern pattern = Pattern.compile(REGEX);
+                    Matcher matcher = pattern.matcher(input);
                     while (matcher.find()) {
                         newItemID.append(matcher.group(1));
                     }
