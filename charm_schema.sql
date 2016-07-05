@@ -41,7 +41,7 @@ create table if not exists CHARM.ITEM_TREE
 (
   id     INT not null auto_increment,
   parent INT,
-  name   VARCHAR(25) not null,
+  abbr   VARCHAR(3) not null,
   primary key (id)
 );
 
