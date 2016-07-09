@@ -33,7 +33,8 @@ create table if not exists CHARM.ITEM_PRICES
 (
   abbr  VARCHAR(3),
   price FLOAT,
-  name  VARCHAR(20)
+  name  VARCHAR(20),
+  primary key (abbr)
 );
 
 
