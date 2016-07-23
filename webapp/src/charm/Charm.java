@@ -31,7 +31,7 @@ public class Charm extends HttpServlet {
     }
 
 
-    private String item_id_check(String i_input) throws Exception {
+    private String itemIDCheck(String i_input) throws Exception {
 
         String input = i_input.toUpperCase();
         ArrayList<String> enchList = new ArrayList<String>(); // Array of enchant abbreviations
@@ -172,15 +172,32 @@ public class Charm extends HttpServlet {
     public void doGet (HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
-        // TODO: Better way to pass values (.. cuz this is temporary)
-        String queryVal = req.getParameter("id");
+        Map<String, String[]> paramMap = req.getParameterMap(); // Returns Map- essentially key:value pairs, in this case key is String and value is String array
 
-        resp.setContentType("text/plain");
-        PrintWriter out = resp.getWriter();
+        if(paramMap == null) // This should trigger if no parameters are specified but idk
+            return;
 
         try {
-            String itemid = item_id_check(queryVal);
-            out.println(itemid);
+
+            resp.setContentType("text/plain");
+            PrintWriter out = resp.getWriter();
+
+            for (Map.Entry<String, String[]> param : paramMap.entrySet()) { // iterates through map keys
+
+                switch (param.getKey()) {
+
+                    case "id": for (String item : param.getValue()) // Iterates through all values specified for ID
+                            out.println(itemIDCheck(item));
+                        break;
+
+                    case "price": for (String item : param.getValue())
+                            out.println(priceOf(item));
+                        break;
+
+                    default: out.println("No support for this function yet, or you didn't ask right!");
+                }
+            }
+
         }
         catch (SQLException se) {
             se.printStackTrace(out);
@@ -188,7 +205,6 @@ public class Charm extends HttpServlet {
         catch (Exception e) {
             e.printStackTrace(out);
         }
-
     }
 
     public void destroy() {
