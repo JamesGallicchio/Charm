@@ -109,8 +109,9 @@ public class Charm extends HttpServlet {
 
         // Cycle through possible nodes until find one (if one is found) that works
         for (int nodeId : possibleNodes) {
+
             int id = nodeId;
-            String foundItem = ""; // adding default value due to compiler complaining about possibly not being initialised
+            String foundItem = "";
 
             ArrayList<String> foundEnchs = new ArrayList<String>();
             while (id != 0) { // Stops when reaches root
@@ -118,13 +119,18 @@ public class Charm extends HttpServlet {
                 Statement idInfoStmt = conn.createStatement();
                 ResultSet idInfo = idInfoStmt.executeQuery("select parent, abbr from ITEM_TREE where id = \'" + id + "\'");
 
-                while(idInfo.next()) {
-                    int parentId = idInfo.getInt(1);
-                    String abbr = idInfo.getString(2);
-                }
+                int parentId;
+                String abbr;
+
+                if (idInfo.next()) {
+                    parentId = idInfo.getInt(1);
+                    abbr = idInfo.getString(2);
+                } else {
+                    throw new Exception();
+                } // Custom exception where an error happened that shouldn't D:
 
                 // Gets item type of this node-root path
-                if (parentId == 0) {
+                if (parentId == 1) {
                     foundItem = abbr;
                 }
 
@@ -155,6 +161,7 @@ public class Charm extends HttpServlet {
                         newItemID.append(matcher.group(1));
                     }
                 }
+                return newItemID.toString();
             }
         }
 
