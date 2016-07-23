@@ -1,16 +1,5 @@
-﻿prompt PL/SQL Developer import file
-prompt Created on Saturday, 18 June, 2016 by James
-set feedback off
-set define off
-prompt Disabling triggers for ENCHANT_INFO...
-alter table ENCHANT_INFO disable all triggers;
-prompt Disabling triggers for ITEM_PRICES...
-alter table ITEM_PRICES disable all triggers;
-prompt Disabling triggers for ITEM_TREE...
-alter table ITEM_TREE disable all triggers;
-prompt Disabling triggers for PRICES...
-alter table PRICES disable all triggers;
-prompt Loading ENCHANT_INFO...
+use CHARM;
+
 insert into ENCHANT_INFO (name, abbr, max_level)
 values ('protection', 'PR', 4);
 insert into ENCHANT_INFO (name, abbr, max_level)
@@ -65,9 +54,8 @@ insert into ENCHANT_INFO (name, abbr, max_level)
 values ('lure', 'LU', 3);
 insert into ENCHANT_INFO (name, abbr, max_level)
 values ('mending', 'ME', 1);
-commit;
-prompt 27 records loaded
-prompt Loading ITEM_PRICES...
+
+
 insert into ITEM_PRICES (abbr, price, name)
 values ('PIC', 90, 'pickaxe');
 insert into ITEM_PRICES (abbr, price, name)
@@ -98,248 +86,243 @@ insert into ITEM_PRICES (abbr, price, name)
 values ('BOK', 5, 'book');
 insert into ITEM_PRICES (abbr, price, name)
 values ('ELY', 5000, 'elytra');
-commit;
-prompt 15 records loaded
-prompt Loading ITEM_TREE...
-insert into ITEM_TREE (id, parent, name)
-values (0, null, 'root');
-insert into ITEM_TREE (id, parent, name)
-values (2, 0, 'pickaxe');
-insert into ITEM_TREE (id, parent, name)
-values (3, 0, 'axe');
-insert into ITEM_TREE (id, parent, name)
-values (4, 0, 'shovel');
-insert into ITEM_TREE (id, parent, name)
-values (5, 0, 'fishing_rod');
-insert into ITEM_TREE (id, parent, name)
-values (6, 0, 'shears');
-insert into ITEM_TREE (id, parent, name)
-values (7, 0, 'flint_and_steel');
-insert into ITEM_TREE (id, parent, name)
-values (8, 0, 'shield');
-insert into ITEM_TREE (id, parent, name)
-values (9, 0, 'bow');
-insert into ITEM_TREE (id, parent, name)
-values (10, 0, 'sword');
-insert into ITEM_TREE (id, parent, name)
-values (11, 0, 'helmet');
-insert into ITEM_TREE (id, parent, name)
-values (12, 0, 'chestplate');
-insert into ITEM_TREE (id, parent, name)
-values (13, 0, 'leggings');
-insert into ITEM_TREE (id, parent, name)
-values (14, 0, 'boots');
-insert into ITEM_TREE (id, parent, name)
-values (15, 0, 'elytra');
-insert into ITEM_TREE (id, parent, name)
-values (16, 1, 'mending');
-insert into ITEM_TREE (id, parent, name)
-values (17, 16, 'unbreaking');
-insert into ITEM_TREE (id, parent, name)
-values (18, 17, 'efficiency');
-insert into ITEM_TREE (id, parent, name)
-values (19, 18, 'fortune');
-insert into ITEM_TREE (id, parent, name)
-values (20, 19, 'silk_touch');
-insert into ITEM_TREE (id, parent, name)
-values (21, 20, 'lure');
-insert into ITEM_TREE (id, parent, name)
-values (22, 21, 'luck_of_the_sea');
-insert into ITEM_TREE (id, parent, name)
-values (23, 22, 'power');
-insert into ITEM_TREE (id, parent, name)
-values (24, 23, 'punch');
-insert into ITEM_TREE (id, parent, name)
-values (25, 24, 'flame');
-insert into ITEM_TREE (id, parent, name)
-values (26, 25, 'infinity');
-insert into ITEM_TREE (id, parent, name)
-values (27, 26, 'knockback');
-insert into ITEM_TREE (id, parent, name)
-values (28, 27, 'fire_aspect');
-insert into ITEM_TREE (id, parent, name)
-values (29, 28, 'looting');
-insert into ITEM_TREE (id, parent, name)
-values (30, 29, 'sharpness');
-insert into ITEM_TREE (id, parent, name)
-values (31, 30, 'smite');
-insert into ITEM_TREE (id, parent, name)
-values (32, 31, 'bane_of_arthropods');
-insert into ITEM_TREE (id, parent, name)
-values (33, 32, 'protection');
-insert into ITEM_TREE (id, parent, name)
-values (34, 33, 'fire_protection');
-insert into ITEM_TREE (id, parent, name)
-values (35, 34, 'feather_falling');
-insert into ITEM_TREE (id, parent, name)
-values (36, 35, 'blast_protection');
-insert into ITEM_TREE (id, parent, name)
-values (37, 36, 'projectile_protection');
-insert into ITEM_TREE (id, parent, name)
-values (38, 37, 'respiration');
-insert into ITEM_TREE (id, parent, name)
-values (39, 38, 'aqua_affinity');
-insert into ITEM_TREE (id, parent, name)
-values (40, 39, 'thorns');
-insert into ITEM_TREE (id, parent, name)
-values (41, 40, 'depth_strider');
-insert into ITEM_TREE (id, parent, name)
-values (42, 41, 'frost_walker');
-insert into ITEM_TREE (id, parent, name)
-values (1, 0, 'book');
-insert into ITEM_TREE (id, parent, name)
-values (43, 2, 'mending');
-insert into ITEM_TREE (id, parent, name)
-values (44, 43, 'unbreaking');
-insert into ITEM_TREE (id, parent, name)
-values (45, 44, 'efficiency');
-insert into ITEM_TREE (id, parent, name)
-values (46, 45, 'fortune');
-insert into ITEM_TREE (id, parent, name)
-values (47, 45, 'silk_touch');
-insert into ITEM_TREE (id, parent, name)
-values (48, 3, 'mending');
-insert into ITEM_TREE (id, parent, name)
-values (49, 48, 'unbreaking');
-insert into ITEM_TREE (id, parent, name)
-values (50, 49, 'efficiency');
-insert into ITEM_TREE (id, parent, name)
-values (51, 50, 'fortune');
-insert into ITEM_TREE (id, parent, name)
-values (52, 50, 'silk_touch');
-insert into ITEM_TREE (id, parent, name)
-values (53, 4, 'mending');
-insert into ITEM_TREE (id, parent, name)
-values (54, 53, 'unbreaking');
-insert into ITEM_TREE (id, parent, name)
-values (55, 54, 'efficiency');
-insert into ITEM_TREE (id, parent, name)
-values (56, 55, 'fortune');
-insert into ITEM_TREE (id, parent, name)
-values (57, 55, 'silk_touch');
-insert into ITEM_TREE (id, parent, name)
-values (58, 5, 'mending');
-insert into ITEM_TREE (id, parent, name)
-values (59, 58, 'unbreaking');
-insert into ITEM_TREE (id, parent, name)
-values (60, 59, 'lure');
-insert into ITEM_TREE (id, parent, name)
-values (61, 60, 'luck_of_the_sea');
-insert into ITEM_TREE (id, parent, name)
-values (62, 6, 'mending');
-insert into ITEM_TREE (id, parent, name)
-values (63, 62, 'unbreaking');
-insert into ITEM_TREE (id, parent, name)
-values (64, 7, 'mending');
-insert into ITEM_TREE (id, parent, name)
-values (65, 64, 'unbreaking');
-insert into ITEM_TREE (id, parent, name)
-values (66, 8, 'mending');
-insert into ITEM_TREE (id, parent, name)
-values (67, 66, 'unbreaking');
-insert into ITEM_TREE (id, parent, name)
-values (68, 9, 'mending');
-insert into ITEM_TREE (id, parent, name)
-values (69, 68, 'unbreaking');
-insert into ITEM_TREE (id, parent, name)
-values (70, 69, 'power');
-insert into ITEM_TREE (id, parent, name)
-values (71, 70, 'punch');
-insert into ITEM_TREE (id, parent, name)
-values (72, 71, 'flame');
-insert into ITEM_TREE (id, parent, name)
-values (73, 72, 'infinity');
-insert into ITEM_TREE (id, parent, name)
-values (74, 10, 'mending');
-insert into ITEM_TREE (id, parent, name)
-values (75, 74, 'unbreaking');
-insert into ITEM_TREE (id, parent, name)
-values (76, 75, 'looting');
-insert into ITEM_TREE (id, parent, name)
-values (77, 76, 'knockback');
-insert into ITEM_TREE (id, parent, name)
-values (78, 77, 'fire_aspect');
-insert into ITEM_TREE (id, parent, name)
-values (79, 78, 'sharpness');
-insert into ITEM_TREE (id, parent, name)
-values (80, 78, 'smite');
-insert into ITEM_TREE (id, parent, name)
-values (81, 78, 'bane_of_arthropods');
-insert into ITEM_TREE (id, parent, name)
-values (82, 11, 'mending');
-insert into ITEM_TREE (id, parent, name)
-values (85, 84, 'respiration');
-insert into ITEM_TREE (id, parent, name)
-values (84, 83, 'thorns');
-insert into ITEM_TREE (id, parent, name)
-values (83, 82, 'unbreaking');
-insert into ITEM_TREE (id, parent, name)
-values (90, 86, 'projectile_protection');
-insert into ITEM_TREE (id, parent, name)
-values (89, 86, 'blast_protection');
-insert into ITEM_TREE (id, parent, name)
-values (88, 86, 'fire_protection');
-insert into ITEM_TREE (id, parent, name)
-values (87, 86, 'protection');
-insert into ITEM_TREE (id, parent, name)
-values (86, 85, 'aqua_affinity');
-insert into ITEM_TREE (id, parent, name)
-values (97, 93, 'projectile_protection');
-insert into ITEM_TREE (id, parent, name)
-values (96, 93, 'blast_protection');
-insert into ITEM_TREE (id, parent, name)
-values (95, 93, 'fire_protection');
-insert into ITEM_TREE (id, parent, name)
-values (94, 93, 'protection');
-insert into ITEM_TREE (id, parent, name)
-values (93, 92, 'thorns');
-insert into ITEM_TREE (id, parent, name)
-values (92, 91, 'unbreaking');
-insert into ITEM_TREE (id, parent, name)
-values (91, 12, 'mending');
-insert into ITEM_TREE (id, parent, name)
-values (104, 100, 'projectile_protection');
-insert into ITEM_TREE (id, parent, name)
-values (103, 100, 'blast_protection');
-commit;
-prompt 100 records committed...
-insert into ITEM_TREE (id, parent, name)
-values (102, 100, 'fire_protection');
-insert into ITEM_TREE (id, parent, name)
-values (101, 100, 'protection');
-insert into ITEM_TREE (id, parent, name)
-values (100, 99, 'thorns');
-insert into ITEM_TREE (id, parent, name)
-values (99, 98, 'unbreaking');
-insert into ITEM_TREE (id, parent, name)
-values (98, 13, 'mending');
-insert into ITEM_TREE (id, parent, name)
-values (113, 110, 'blast_protection');
-insert into ITEM_TREE (id, parent, name)
-values (112, 110, 'fire_protection');
-insert into ITEM_TREE (id, parent, name)
-values (111, 110, 'protection');
-insert into ITEM_TREE (id, parent, name)
-values (110, 109, 'frost_walker');
-insert into ITEM_TREE (id, parent, name)
-values (109, 108, 'depth_strider');
-insert into ITEM_TREE (id, parent, name)
-values (108, 107, 'feather_falling');
-insert into ITEM_TREE (id, parent, name)
-values (107, 106, 'thorns');
-insert into ITEM_TREE (id, parent, name)
-values (106, 105, 'unbreaking');
-insert into ITEM_TREE (id, parent, name)
-values (105, 14, 'mending');
-insert into ITEM_TREE (id, parent, name)
-values (114, 110, 'projectile_protection');
-insert into ITEM_TREE (id, parent, name)
-values (115, 15, 'mending');
-insert into ITEM_TREE (id, parent, name)
-values (116, 115, 'unbreaking');
-commit;
-prompt 117 records loaded
-prompt Loading PRICES...
+
+insert into ITEM_TREE (id, parent, abbr)
+values (0, null, 'roo');
+insert into ITEM_TREE (id, parent, abbr)
+values (1, 0, 'BOK');
+insert into ITEM_TREE (id, parent, abbr)
+values (2, 0, 'PIC');
+insert into ITEM_TREE (id, parent, abbr)
+values (3, 0, 'AXE');
+insert into ITEM_TREE (id, parent, abbr)
+values (4, 0, 'SHO');
+insert into ITEM_TREE (id, parent, abbr)
+values (5, 0, 'ROD');
+insert into ITEM_TREE (id, parent, abbr)
+values (6, 0, 'SHE');
+insert into ITEM_TREE (id, parent, abbr)
+values (7, 0, 'FLI');
+insert into ITEM_TREE (id, parent, abbr)
+values (8, 0, 'SHI');
+insert into ITEM_TREE (id, parent, abbr)
+values (9, 0, 'BOW');
+insert into ITEM_TREE (id, parent, abbr)
+values (10, 0, 'SWO');
+insert into ITEM_TREE (id, parent, abbr)
+values (11, 0, 'HEL');
+insert into ITEM_TREE (id, parent, abbr)
+values (12, 0, 'CHE');
+insert into ITEM_TREE (id, parent, abbr)
+values (13, 0, 'LEG');
+insert into ITEM_TREE (id, parent, abbr)
+values (14, 0, 'BOO');
+insert into ITEM_TREE (id, parent, abbr)
+values (15, 0, 'ELY');
+insert into ITEM_TREE (id, parent, abbr)
+values (16, 1, 'ME');
+insert into ITEM_TREE (id, parent, abbr)
+values (17, 16, 'UN');
+insert into ITEM_TREE (id, parent, abbr)
+values (18, 17, 'EF');
+insert into ITEM_TREE (id, parent, abbr)
+values (19, 18, 'FO');
+insert into ITEM_TREE (id, parent, abbr)
+values (20, 19, 'ST');
+insert into ITEM_TREE (id, parent, abbr)
+values (21, 20, 'LU');
+insert into ITEM_TREE (id, parent, abbr)
+values (22, 21, 'LS');
+insert into ITEM_TREE (id, parent, abbr)
+values (23, 22, 'PO');
+insert into ITEM_TREE (id, parent, abbr)
+values (24, 23, 'PU');
+insert into ITEM_TREE (id, parent, abbr)
+values (25, 24, 'FL');
+insert into ITEM_TREE (id, parent, abbr)
+values (26, 25, 'IN');
+insert into ITEM_TREE (id, parent, abbr)
+values (27, 26, 'KN');
+insert into ITEM_TREE (id, parent, abbr)
+values (28, 27, 'FA');
+insert into ITEM_TREE (id, parent, abbr)
+values (29, 28, 'LO');
+insert into ITEM_TREE (id, parent, abbr)
+values (30, 29, 'SH');
+insert into ITEM_TREE (id, parent, abbr)
+values (31, 30, 'SM');
+insert into ITEM_TREE (id, parent, abbr)
+values (32, 31, 'BA');
+insert into ITEM_TREE (id, parent, abbr)
+values (33, 32, 'PR');
+insert into ITEM_TREE (id, parent, abbr)
+values (34, 33, 'FP');
+insert into ITEM_TREE (id, parent, abbr)
+values (35, 34, 'FF');
+insert into ITEM_TREE (id, parent, abbr)
+values (36, 35, 'BP');
+insert into ITEM_TREE (id, parent, abbr)
+values (37, 36, 'PP');
+insert into ITEM_TREE (id, parent, abbr)
+values (38, 37, 'RE');
+insert into ITEM_TREE (id, parent, abbr)
+values (39, 38, 'AA');
+insert into ITEM_TREE (id, parent, abbr)
+values (40, 39, 'TH');
+insert into ITEM_TREE (id, parent, abbr)
+values (41, 40, 'DS');
+insert into ITEM_TREE (id, parent, abbr)
+values (42, 41, 'FW');
+insert into ITEM_TREE (id, parent, abbr)
+values (43, 2, 'ME');
+insert into ITEM_TREE (id, parent, abbr)
+values (44, 43, 'UN');
+insert into ITEM_TREE (id, parent, abbr)
+values (45, 44, 'EF');
+insert into ITEM_TREE (id, parent, abbr)
+values (46, 45, 'FO');
+insert into ITEM_TREE (id, parent, abbr)
+values (47, 45, 'ST');
+insert into ITEM_TREE (id, parent, abbr)
+values (48, 3, 'ME');
+insert into ITEM_TREE (id, parent, abbr)
+values (49, 48, 'UN');
+insert into ITEM_TREE (id, parent, abbr)
+values (50, 49, 'EF');
+insert into ITEM_TREE (id, parent, abbr)
+values (51, 50, 'FO');
+insert into ITEM_TREE (id, parent, abbr)
+values (52, 50, 'ST');
+insert into ITEM_TREE (id, parent, abbr)
+values (53, 4, 'ME');
+insert into ITEM_TREE (id, parent, abbr)
+values (54, 53, 'UN');
+insert into ITEM_TREE (id, parent, abbr)
+values (55, 54, 'EF');
+insert into ITEM_TREE (id, parent, abbr)
+values (56, 55, 'FO');
+insert into ITEM_TREE (id, parent, abbr)
+values (57, 55, 'ST');
+insert into ITEM_TREE (id, parent, abbr)
+values (58, 5, 'ME');
+insert into ITEM_TREE (id, parent, abbr)
+values (59, 58, 'UN');
+insert into ITEM_TREE (id, parent, abbr)
+values (60, 59, 'LU');
+insert into ITEM_TREE (id, parent, abbr)
+values (61, 60, 'LS');
+insert into ITEM_TREE (id, parent, abbr)
+values (62, 6, 'ME');
+insert into ITEM_TREE (id, parent, abbr)
+values (63, 62, 'UN');
+insert into ITEM_TREE (id, parent, abbr)
+values (64, 7, 'ME');
+insert into ITEM_TREE (id, parent, abbr)
+values (65, 64, 'UN');
+insert into ITEM_TREE (id, parent, abbr)
+values (66, 8, 'ME');
+insert into ITEM_TREE (id, parent, abbr)
+values (67, 66, 'UN');
+insert into ITEM_TREE (id, parent, abbr)
+values (68, 9, 'ME');
+insert into ITEM_TREE (id, parent, abbr)
+values (69, 68, 'UN');
+insert into ITEM_TREE (id, parent, abbr)
+values (70, 69, 'PO');
+insert into ITEM_TREE (id, parent, abbr)
+values (71, 70, 'PU');
+insert into ITEM_TREE (id, parent, abbr)
+values (72, 71, 'FL');
+insert into ITEM_TREE (id, parent, abbr)
+values (73, 72, 'IN');
+insert into ITEM_TREE (id, parent, abbr)
+values (74, 10, 'ME');
+insert into ITEM_TREE (id, parent, abbr)
+values (75, 74, 'UN');
+insert into ITEM_TREE (id, parent, abbr)
+values (76, 75, 'LO');
+insert into ITEM_TREE (id, parent, abbr)
+values (77, 76, 'KN');
+insert into ITEM_TREE (id, parent, abbr)
+values (78, 77, 'FA');
+insert into ITEM_TREE (id, parent, abbr)
+values (79, 78, 'SH');
+insert into ITEM_TREE (id, parent, abbr)
+values (80, 78, 'SM');
+insert into ITEM_TREE (id, parent, abbr)
+values (81, 78, 'BA');
+insert into ITEM_TREE (id, parent, abbr)
+values (82, 11, 'ME');
+insert into ITEM_TREE (id, parent, abbr)
+values (83, 82, 'UN');
+insert into ITEM_TREE (id, parent, abbr)
+values (84, 83, 'TH');
+insert into ITEM_TREE (id, parent, abbr)
+values (85, 84, 'RE');
+insert into ITEM_TREE (id, parent, abbr)
+values (86, 85, 'AA');
+insert into ITEM_TREE (id, parent, abbr)
+values (87, 86, 'PR');
+insert into ITEM_TREE (id, parent, abbr)
+values (88, 86, 'FP');
+insert into ITEM_TREE (id, parent, abbr)
+values (89, 86, 'BP');
+insert into ITEM_TREE (id, parent, abbr)
+values (90, 86, 'PP');
+insert into ITEM_TREE (id, parent, abbr)
+values (91, 12, 'ME');
+insert into ITEM_TREE (id, parent, abbr)
+values (92, 91, 'UN');
+insert into ITEM_TREE (id, parent, abbr)
+values (93, 92, 'TH');
+insert into ITEM_TREE (id, parent, abbr)
+values (94, 93, 'PR');
+insert into ITEM_TREE (id, parent, abbr)
+values (95, 93, 'FP');
+insert into ITEM_TREE (id, parent, abbr)
+values (96, 93, 'BP');
+insert into ITEM_TREE (id, parent, abbr)
+values (97, 93, 'PP');
+insert into ITEM_TREE (id, parent, abbr)
+values (98, 13, 'ME');
+insert into ITEM_TREE (id, parent, abbr)
+values (99, 98, 'UN');
+insert into ITEM_TREE (id, parent, abbr)
+values (100, 99, 'TH');
+insert into ITEM_TREE (id, parent, abbr)
+values (101, 100, 'PR');
+insert into ITEM_TREE (id, parent, abbr)
+values (102, 100, 'FP');
+insert into ITEM_TREE (id, parent, abbr)
+values (103, 100, 'BP');
+insert into ITEM_TREE (id, parent, abbr)
+values (104, 100, 'PP');
+insert into ITEM_TREE (id, parent, abbr)
+values (105, 14, 'ME');
+insert into ITEM_TREE (id, parent, abbr)
+values (106, 105, 'UN');
+insert into ITEM_TREE (id, parent, abbr)
+values (107, 106, 'TH');
+insert into ITEM_TREE (id, parent, abbr)
+values (108, 107, 'FF');
+insert into ITEM_TREE (id, parent, abbr)
+values (109, 108, 'DS');
+insert into ITEM_TREE (id, parent, abbr)
+values (110, 109, 'FW');
+insert into ITEM_TREE (id, parent, abbr)
+values (111, 110, 'PR');
+insert into ITEM_TREE (id, parent, abbr)
+values (112, 110, 'FP');
+insert into ITEM_TREE (id, parent, abbr)
+values (113, 110, 'BP');
+insert into ITEM_TREE (id, parent, abbr)
+values (114, 110, 'PP');
+insert into ITEM_TREE (id, parent, abbr)
+values (115, 15, 'ME');
+insert into ITEM_TREE (id, parent, abbr)
+values (116, 115, 'UN');
+
+
 insert into PRICES (ench_level, unbreaking, efficiency, silk_touch, fortune, looting, sharpness, knockback, smite, bane_of_arthropods, fire_aspect, protection, thorns, aqua_affinity, fire_protection, projectile_protection, feather_falling, blast_protection, respiration, depth_strider, power, punch, flame, infinity, luck_of_the_sea, lure, frost_walker)
 values (1, 50, 20, 300, 80, 100, 10, 20, 10, 10, 40, 10, 40, 100, 7.5, 7.5, 10, 5, 20, 30, 10, 20, 100, 400, 10, 10, 100);
 insert into PRICES (ench_level, unbreaking, efficiency, silk_touch, fortune, looting, sharpness, knockback, smite, bane_of_arthropods, fire_aspect, protection, thorns, aqua_affinity, fire_protection, projectile_protection, feather_falling, blast_protection, respiration, depth_strider, power, punch, flame, infinity, luck_of_the_sea, lure, frost_walker)
@@ -350,16 +333,4 @@ insert into PRICES (ench_level, unbreaking, efficiency, silk_touch, fortune, loo
 values (4, null, 160, null, null, null, 150, null, 100, 100, null, 150, null, null, 112.5, 112.5, 150, 75, null, null, 100, null, null, null, null, null, null);
 insert into PRICES (ench_level, unbreaking, efficiency, silk_touch, fortune, looting, sharpness, knockback, smite, bane_of_arthropods, fire_aspect, protection, thorns, aqua_affinity, fire_protection, projectile_protection, feather_falling, blast_protection, respiration, depth_strider, power, punch, flame, infinity, luck_of_the_sea, lure, frost_walker)
 values (5, null, 320, null, null, null, 300, null, 200, 200, null, null, null, null, null, null, null, null, null, null, 200, null, null, null, null, null, null);
-commit;
-prompt 5 records loaded
-prompt Enabling triggers for ENCHANT_INFO...
-alter table ENCHANT_INFO enable all triggers;
-prompt Enabling triggers for ITEM_PRICES...
-alter table ITEM_PRICES enable all triggers;
-prompt Enabling triggers for ITEM_TREE...
-alter table ITEM_TREE enable all triggers;
-prompt Enabling triggers for PRICES...
-alter table PRICES enable all triggers;
-set feedback on
-set define on
-prompt Done.
+
