@@ -90,35 +90,35 @@ values ('ELY', 5000, 'elytra');
 insert into ITEM_TREE (id, parent, abbr)
 values (0, null, 'roo');
 insert into ITEM_TREE (id, parent, abbr)
-values (1, 1, 'BOK');
+values (1, 0, 'BOK');
 insert into ITEM_TREE (id, parent, abbr)
-values (2, 1, 'PIC');
+values (2, 0, 'PIC');
 insert into ITEM_TREE (id, parent, abbr)
-values (3, 1, 'AXE');
+values (3, 0, 'AXE');
 insert into ITEM_TREE (id, parent, abbr)
-values (4, 1, 'SHO');
+values (4, 0, 'SHO');
 insert into ITEM_TREE (id, parent, abbr)
-values (5, 1, 'ROD');
+values (5, 0, 'ROD');
 insert into ITEM_TREE (id, parent, abbr)
-values (6, 1, 'SHE');
+values (6, 0, 'SHE');
 insert into ITEM_TREE (id, parent, abbr)
-values (7, 1, 'FLI');
+values (7, 0, 'FLI');
 insert into ITEM_TREE (id, parent, abbr)
-values (8, 1, 'SHI');
+values (8, 0, 'SHI');
 insert into ITEM_TREE (id, parent, abbr)
-values (9, 1, 'BOW');
+values (9, 0, 'BOW');
 insert into ITEM_TREE (id, parent, abbr)
-values (10, 1, 'SWO');
+values (10, 0, 'SWO');
 insert into ITEM_TREE (id, parent, abbr)
-values (11, 1, 'HEL');
+values (11, 0, 'HEL');
 insert into ITEM_TREE (id, parent, abbr)
-values (12, 1, 'CHE');
+values (12, 0, 'CHE');
 insert into ITEM_TREE (id, parent, abbr)
-values (13, 1, 'LEG');
+values (13, 0, 'LEG');
 insert into ITEM_TREE (id, parent, abbr)
-values (14, 1, 'BOO');
+values (14, 0, 'BOO');
 insert into ITEM_TREE (id, parent, abbr)
-values (15, 1, 'ELY');
+values (15, 0, 'ELY');
 insert into ITEM_TREE (id, parent, abbr)
 values (16, 1, 'ME');
 insert into ITEM_TREE (id, parent, abbr)
