@@ -114,7 +114,7 @@ public class Charm extends HttpServlet {
             String foundItem = "";
 
             ArrayList<String> foundEnchs = new ArrayList<String>();
-            while (id != 1) { // Stops when reaches root
+            while (id != 0) { // Stops when reaches root
                 // Get parent of current ID
                 Statement idInfoStmt = conn.createStatement();
                 ResultSet idInfo = idInfoStmt.executeQuery("select parent, abbr from ITEM_TREE where id = \'" + id + "\'");
@@ -130,7 +130,7 @@ public class Charm extends HttpServlet {
                 } // Custom exception where an error happened that shouldn't D:
 
                 // Gets item type of this node-root path
-                if (parentId == 1) {
+                if (parentId == 0) {
                     foundItem = abbr;
                 }
 
