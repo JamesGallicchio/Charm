@@ -9,6 +9,7 @@ import java.io.*;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class Charm extends HttpServlet {
 
@@ -177,10 +178,10 @@ public class Charm extends HttpServlet {
         if(paramMap == null) // This should trigger if no parameters are specified but idk
             return;
 
-        try {
+        resp.setContentType("text/plain");
+        PrintWriter out = resp.getWriter();
 
-            resp.setContentType("text/plain");
-            PrintWriter out = resp.getWriter();
+        try {
 
             for (Map.Entry<String, String[]> param : paramMap.entrySet()) { // iterates through map keys
 
