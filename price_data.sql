@@ -88,239 +88,239 @@ insert into ITEM_PRICES (abbr, price, name)
 values ('ELY', 5000, 'elytra');
 
 insert into ITEM_TREE (id, parent, abbr)
-values (1, null, 'root');
+values (0, null, 'roo');
 insert into ITEM_TREE (id, parent, abbr)
-values (2, 1, 'BOK');
+values (1, 1, 'BOK');
 insert into ITEM_TREE (id, parent, abbr)
-values (3, 1, 'PIC');
+values (2, 1, 'PIC');
 insert into ITEM_TREE (id, parent, abbr)
-values (4, 1, 'AXE');
+values (3, 1, 'AXE');
 insert into ITEM_TREE (id, parent, abbr)
-values (5, 1, 'SHO');
+values (4, 1, 'SHO');
 insert into ITEM_TREE (id, parent, abbr)
-values (6, 1, 'ROD');
+values (5, 1, 'ROD');
 insert into ITEM_TREE (id, parent, abbr)
-values (7, 1, 'SHE');
+values (6, 1, 'SHE');
 insert into ITEM_TREE (id, parent, abbr)
-values (8, 1, 'FLI');
+values (7, 1, 'FLI');
 insert into ITEM_TREE (id, parent, abbr)
-values (9, 1, 'SHI');
+values (8, 1, 'SHI');
 insert into ITEM_TREE (id, parent, abbr)
-values (10, 1, 'BOW');
+values (9, 1, 'BOW');
 insert into ITEM_TREE (id, parent, abbr)
-values (11, 1, 'SWO');
+values (10, 1, 'SWO');
 insert into ITEM_TREE (id, parent, abbr)
-values (12, 1, 'HEL');
+values (11, 1, 'HEL');
 insert into ITEM_TREE (id, parent, abbr)
-values (13, 1, 'CHE');
+values (12, 1, 'CHE');
 insert into ITEM_TREE (id, parent, abbr)
-values (14, 1, 'LEG');
+values (13, 1, 'LEG');
 insert into ITEM_TREE (id, parent, abbr)
-values (15, 1, 'BOO');
+values (14, 1, 'BOO');
 insert into ITEM_TREE (id, parent, abbr)
-values (16, 1, 'ELY');
+values (15, 1, 'ELY');
 insert into ITEM_TREE (id, parent, abbr)
-values (17, 1, 'ME');
+values (16, 1, 'ME');
 insert into ITEM_TREE (id, parent, abbr)
-values (18, 16, 'UN');
+values (17, 16, 'UN');
 insert into ITEM_TREE (id, parent, abbr)
-values (19, 17, 'EF');
+values (18, 17, 'EF');
 insert into ITEM_TREE (id, parent, abbr)
-values (20, 18, 'FO');
+values (19, 18, 'FO');
 insert into ITEM_TREE (id, parent, abbr)
-values (21, 19, 'ST');
+values (20, 19, 'ST');
 insert into ITEM_TREE (id, parent, abbr)
-values (22, 20, 'LU');
+values (21, 20, 'LU');
 insert into ITEM_TREE (id, parent, abbr)
-values (23, 21, 'LS');
+values (22, 21, 'LS');
 insert into ITEM_TREE (id, parent, abbr)
-values (24, 22, 'PO');
+values (23, 22, 'PO');
 insert into ITEM_TREE (id, parent, abbr)
-values (25, 23, 'PU');
+values (24, 23, 'PU');
 insert into ITEM_TREE (id, parent, abbr)
-values (26, 24, 'FL');
+values (25, 24, 'FL');
 insert into ITEM_TREE (id, parent, abbr)
-values (27, 25, 'IN');
+values (26, 25, 'IN');
 insert into ITEM_TREE (id, parent, abbr)
-values (28, 26, 'KN');
+values (27, 26, 'KN');
 insert into ITEM_TREE (id, parent, abbr)
-values (29, 27, 'FA');
+values (28, 27, 'FA');
 insert into ITEM_TREE (id, parent, abbr)
-values (30, 28, 'LO');
+values (29, 28, 'LO');
 insert into ITEM_TREE (id, parent, abbr)
-values (31, 29, 'SH');
+values (30, 29, 'SH');
 insert into ITEM_TREE (id, parent, abbr)
-values (32, 30, 'SM');
+values (31, 30, 'SM');
 insert into ITEM_TREE (id, parent, abbr)
-values (33, 31, 'BA');
+values (32, 31, 'BA');
 insert into ITEM_TREE (id, parent, abbr)
-values (34, 32, 'PR');
+values (33, 32, 'PR');
 insert into ITEM_TREE (id, parent, abbr)
-values (35, 33, 'FP');
+values (34, 33, 'FP');
 insert into ITEM_TREE (id, parent, abbr)
-values (36, 34, 'FF');
+values (35, 34, 'FF');
 insert into ITEM_TREE (id, parent, abbr)
-values (37, 35, 'BP');
+values (36, 35, 'BP');
 insert into ITEM_TREE (id, parent, abbr)
-values (38, 36, 'PP');
+values (37, 36, 'PP');
 insert into ITEM_TREE (id, parent, abbr)
-values (39, 37, 'RE');
+values (38, 37, 'RE');
 insert into ITEM_TREE (id, parent, abbr)
-values (40, 38, 'AA');
+values (39, 38, 'AA');
 insert into ITEM_TREE (id, parent, abbr)
-values (41, 39, 'TH');
+values (40, 39, 'TH');
 insert into ITEM_TREE (id, parent, abbr)
-values (42, 40, 'DS');
+values (41, 40, 'DS');
 insert into ITEM_TREE (id, parent, abbr)
-values (43, 41, 'FW');
+values (42, 41, 'FW');
 insert into ITEM_TREE (id, parent, abbr)
-values (44, 2, 'ME');
+values (43, 2, 'ME');
 insert into ITEM_TREE (id, parent, abbr)
-values (45, 43, 'UN');
+values (44, 43, 'UN');
 insert into ITEM_TREE (id, parent, abbr)
-values (46, 44, 'EF');
+values (45, 44, 'EF');
 insert into ITEM_TREE (id, parent, abbr)
-values (47, 45, 'FO');
+values (46, 45, 'FO');
 insert into ITEM_TREE (id, parent, abbr)
-values (48, 45, 'ST');
+values (47, 45, 'ST');
 insert into ITEM_TREE (id, parent, abbr)
-values (49, 3, 'ME');
+values (48, 3, 'ME');
 insert into ITEM_TREE (id, parent, abbr)
-values (50, 48, 'UN');
+values (49, 48, 'UN');
 insert into ITEM_TREE (id, parent, abbr)
-values (51, 49, 'EF');
+values (50, 49, 'EF');
 insert into ITEM_TREE (id, parent, abbr)
-values (52, 50, 'FO');
+values (51, 50, 'FO');
 insert into ITEM_TREE (id, parent, abbr)
-values (53, 50, 'ST');
+values (52, 50, 'ST');
 insert into ITEM_TREE (id, parent, abbr)
-values (54, 4, 'ME');
+values (53, 4, 'ME');
 insert into ITEM_TREE (id, parent, abbr)
-values (55, 53, 'UN');
+values (54, 53, 'UN');
 insert into ITEM_TREE (id, parent, abbr)
-values (56, 54, 'EF');
+values (55, 54, 'EF');
 insert into ITEM_TREE (id, parent, abbr)
-values (57, 55, 'FO');
+values (56, 55, 'FO');
 insert into ITEM_TREE (id, parent, abbr)
-values (58, 55, 'ST');
+values (57, 55, 'ST');
 insert into ITEM_TREE (id, parent, abbr)
-values (59, 5, 'ME');
+values (58, 5, 'ME');
 insert into ITEM_TREE (id, parent, abbr)
-values (60, 58, 'UN');
+values (59, 58, 'UN');
 insert into ITEM_TREE (id, parent, abbr)
-values (61, 59, 'LU');
+values (60, 59, 'LU');
 insert into ITEM_TREE (id, parent, abbr)
-values (62, 60, 'LS');
+values (61, 60, 'LS');
 insert into ITEM_TREE (id, parent, abbr)
-values (63, 6, 'ME');
+values (62, 6, 'ME');
 insert into ITEM_TREE (id, parent, abbr)
-values (64, 62, 'UN');
+values (63, 62, 'UN');
 insert into ITEM_TREE (id, parent, abbr)
-values (65, 7, 'ME');
+values (64, 7, 'ME');
 insert into ITEM_TREE (id, parent, abbr)
-values (66, 64, 'UN');
+values (65, 64, 'UN');
 insert into ITEM_TREE (id, parent, abbr)
-values (67, 8, 'ME');
+values (66, 8, 'ME');
 insert into ITEM_TREE (id, parent, abbr)
-values (68, 66, 'UN');
+values (67, 66, 'UN');
 insert into ITEM_TREE (id, parent, abbr)
-values (69, 9, 'ME');
+values (68, 9, 'ME');
 insert into ITEM_TREE (id, parent, abbr)
-values (70, 68, 'UN');
+values (69, 68, 'UN');
 insert into ITEM_TREE (id, parent, abbr)
-values (71, 69, 'PO');
+values (70, 69, 'PO');
 insert into ITEM_TREE (id, parent, abbr)
-values (72, 70, 'PU');
+values (71, 70, 'PU');
 insert into ITEM_TREE (id, parent, abbr)
-values (73, 71, 'FL');
+values (72, 71, 'FL');
 insert into ITEM_TREE (id, parent, abbr)
-values (74, 72, 'IN');
+values (73, 72, 'IN');
 insert into ITEM_TREE (id, parent, abbr)
-values (75, 10, 'ME');
+values (74, 10, 'ME');
 insert into ITEM_TREE (id, parent, abbr)
-values (76, 74, 'UN');
+values (75, 74, 'UN');
 insert into ITEM_TREE (id, parent, abbr)
-values (77, 75, 'LO');
+values (76, 75, 'LO');
 insert into ITEM_TREE (id, parent, abbr)
-values (78, 76, 'KN');
+values (77, 76, 'KN');
 insert into ITEM_TREE (id, parent, abbr)
-values (79, 77, 'FA');
+values (78, 77, 'FA');
 insert into ITEM_TREE (id, parent, abbr)
-values (80, 78, 'SH');
+values (79, 78, 'SH');
 insert into ITEM_TREE (id, parent, abbr)
-values (81, 78, 'SM');
+values (80, 78, 'SM');
 insert into ITEM_TREE (id, parent, abbr)
-values (82, 78, 'BA');
+values (81, 78, 'BA');
 insert into ITEM_TREE (id, parent, abbr)
-values (83, 11, 'ME');
+values (82, 11, 'ME');
 insert into ITEM_TREE (id, parent, abbr)
-values (84, 82, 'UN');
+values (83, 82, 'UN');
 insert into ITEM_TREE (id, parent, abbr)
-values (85, 83, 'TH');
+values (84, 83, 'TH');
 insert into ITEM_TREE (id, parent, abbr)
-values (86, 84, 'RE');
+values (85, 84, 'RE');
 insert into ITEM_TREE (id, parent, abbr)
-values (87, 85, 'AA');
+values (86, 85, 'AA');
 insert into ITEM_TREE (id, parent, abbr)
-values (88, 86, 'PR');
+values (87, 86, 'PR');
 insert into ITEM_TREE (id, parent, abbr)
-values (89, 86, 'FP');
+values (88, 86, 'FP');
 insert into ITEM_TREE (id, parent, abbr)
-values (90, 86, 'BP');
+values (89, 86, 'BP');
 insert into ITEM_TREE (id, parent, abbr)
-values (91, 86, 'PP');
+values (90, 86, 'PP');
 insert into ITEM_TREE (id, parent, abbr)
-values (92, 12, 'ME');
+values (91, 12, 'ME');
 insert into ITEM_TREE (id, parent, abbr)
-values (93, 91, 'UN');
+values (92, 91, 'UN');
 insert into ITEM_TREE (id, parent, abbr)
-values (94, 92, 'TH');
+values (93, 92, 'TH');
 insert into ITEM_TREE (id, parent, abbr)
-values (95, 93, 'PR');
+values (94, 93, 'PR');
 insert into ITEM_TREE (id, parent, abbr)
-values (96, 93, 'FP');
+values (95, 93, 'FP');
 insert into ITEM_TREE (id, parent, abbr)
-values (97, 93, 'BP');
+values (96, 93, 'BP');
 insert into ITEM_TREE (id, parent, abbr)
-values (98, 93, 'PP');
+values (97, 93, 'PP');
 insert into ITEM_TREE (id, parent, abbr)
-values (99, 13, 'ME');
+values (98, 13, 'ME');
 insert into ITEM_TREE (id, parent, abbr)
-values (100, 98, 'UN');
+values (99, 98, 'UN');
 insert into ITEM_TREE (id, parent, abbr)
-values (101, 99, 'TH');
+values (100, 99, 'TH');
 insert into ITEM_TREE (id, parent, abbr)
-values (102, 100, 'PR');
+values (101, 100, 'PR');
 insert into ITEM_TREE (id, parent, abbr)
-values (103, 100, 'FP');
+values (102, 100, 'FP');
 insert into ITEM_TREE (id, parent, abbr)
-values (104, 100, 'BP');
+values (103, 100, 'BP');
 insert into ITEM_TREE (id, parent, abbr)
-values (105, 100, 'PP');
+values (104, 100, 'PP');
 insert into ITEM_TREE (id, parent, abbr)
-values (106, 14, 'ME');
+values (105, 14, 'ME');
 insert into ITEM_TREE (id, parent, abbr)
-values (107, 105, 'UN');
+values (106, 105, 'UN');
 insert into ITEM_TREE (id, parent, abbr)
-values (108, 106, 'TH');
+values (107, 106, 'TH');
 insert into ITEM_TREE (id, parent, abbr)
-values (109, 107, 'FF');
+values (108, 107, 'FF');
 insert into ITEM_TREE (id, parent, abbr)
-values (110, 108, 'DS');
+values (109, 108, 'DS');
 insert into ITEM_TREE (id, parent, abbr)
-values (111, 109, 'FW');
+values (110, 109, 'FW');
 insert into ITEM_TREE (id, parent, abbr)
-values (112, 110, 'PR');
+values (111, 110, 'PR');
 insert into ITEM_TREE (id, parent, abbr)
-values (113, 110, 'FP');
+values (112, 110, 'FP');
 insert into ITEM_TREE (id, parent, abbr)
-values (114, 110, 'BP');
+values (113, 110, 'BP');
 insert into ITEM_TREE (id, parent, abbr)
-values (115, 110, 'PP');
+values (114, 110, 'PP');
 insert into ITEM_TREE (id, parent, abbr)
-values (116, 15, 'ME');
+values (115, 15, 'ME');
 insert into ITEM_TREE (id, parent, abbr)
-values (117, 115, 'UN');
+values (116, 115, 'UN');
 
 
 insert into PRICES (ench_level, unbreaking, efficiency, silk_touch, fortune, looting, sharpness, knockback, smite, bane_of_arthropods, fire_aspect, protection, thorns, aqua_affinity, fire_protection, projectile_protection, feather_falling, blast_protection, respiration, depth_strider, power, punch, flame, infinity, luck_of_the_sea, lure, frost_walker)

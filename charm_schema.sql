@@ -40,7 +40,7 @@ create table if not exists CHARM.ITEM_PRICES
 
 create table if not exists CHARM.ITEM_TREE
 (
-  id     INT not null auto_increment,
+  id     INT not null,
   parent INT,
   abbr   VARCHAR(3) not null,
   primary key (id)
