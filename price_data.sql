@@ -323,14 +323,83 @@ insert into ITEM_TREE (id, parent, abbr)
 values (116, 115, 'UN');
 
 
-insert into PRICES (ench_level, unbreaking, efficiency, silk_touch, fortune, looting, sharpness, knockback, smite, bane_of_arthropods, fire_aspect, protection, thorns, aqua_affinity, fire_protection, projectile_protection, feather_falling, blast_protection, respiration, depth_strider, power, punch, flame, infinity, luck_of_the_sea, lure, frost_walker)
-values (1, 50, 20, 300, 80, 100, 10, 20, 10, 10, 40, 10, 40, 100, 7.5, 7.5, 10, 5, 20, 30, 10, 20, 100, 400, 10, 10, 100);
-insert into PRICES (ench_level, unbreaking, efficiency, silk_touch, fortune, looting, sharpness, knockback, smite, bane_of_arthropods, fire_aspect, protection, thorns, aqua_affinity, fire_protection, projectile_protection, feather_falling, blast_protection, respiration, depth_strider, power, punch, flame, infinity, luck_of_the_sea, lure, frost_walker)
-values (2, 100, 40, null, 160, 200, 20, 40, 20, 20, 80, 20, 80, null, 15, 15, 30, 10, 50, 100, 20, 40, null, null, 40, 40, 200);
-insert into PRICES (ench_level, unbreaking, efficiency, silk_touch, fortune, looting, sharpness, knockback, smite, bane_of_arthropods, fire_aspect, protection, thorns, aqua_affinity, fire_protection, projectile_protection, feather_falling, blast_protection, respiration, depth_strider, power, punch, flame, infinity, luck_of_the_sea, lure, frost_walker)
-values (3, 200, 80, null, 320, 400, 60, null, 40, 40, null, 100, null, null, 75, 75, 100, 50, 100, 200, 50, null, null, null, 100, 100, null);
-insert into PRICES (ench_level, unbreaking, efficiency, silk_touch, fortune, looting, sharpness, knockback, smite, bane_of_arthropods, fire_aspect, protection, thorns, aqua_affinity, fire_protection, projectile_protection, feather_falling, blast_protection, respiration, depth_strider, power, punch, flame, infinity, luck_of_the_sea, lure, frost_walker)
-values (4, null, 160, null, null, null, 150, null, 100, 100, null, 150, null, null, 112.5, 112.5, 150, 75, null, null, 100, null, null, null, null, null, null);
-insert into PRICES (ench_level, unbreaking, efficiency, silk_touch, fortune, looting, sharpness, knockback, smite, bane_of_arthropods, fire_aspect, protection, thorns, aqua_affinity, fire_protection, projectile_protection, feather_falling, blast_protection, respiration, depth_strider, power, punch, flame, infinity, luck_of_the_sea, lure, frost_walker)
-values (5, null, 320, null, null, null, 300, null, 200, 200, null, null, null, null, null, null, null, null, null, null, 200, null, null, null, null, null, null);
-
+insert into PRICES (abbr, price) values ('UN1', 50);
+insert into PRICES (abbr, price) values ('EF1', 20);
+insert into PRICES (abbr, price) values ('ST1', 300);
+insert into PRICES (abbr, price) values ('FO1', 80);
+insert into PRICES (abbr, price) values ('LO1', 100);
+insert into PRICES (abbr, price) values ('SH1', 10);
+insert into PRICES (abbr, price) values ('KN1', 20);
+insert into PRICES (abbr, price) values ('SM1', 10);
+insert into PRICES (abbr, price) values ('BA1', 10);
+insert into PRICES (abbr, price) values ('FA1', 40);
+insert into PRICES (abbr, price) values ('PR1', 10);
+insert into PRICES (abbr, price) values ('TH1', 40);
+insert into PRICES (abbr, price) values ('AA1', 100);
+insert into PRICES (abbr, price) values ('FP1', 7.5);
+insert into PRICES (abbr, price) values ('PP1', 7.5);
+insert into PRICES (abbr, price) values ('FF1', 10);
+insert into PRICES (abbr, price) values ('BP1', 5);
+insert into PRICES (abbr, price) values ('RE1', 20);
+insert into PRICES (abbr, price) values ('DS1', 30);
+insert into PRICES (abbr, price) values ('PO1', 10);
+insert into PRICES (abbr, price) values ('PU1', 20);
+insert into PRICES (abbr, price) values ('FL1', 100);
+insert into PRICES (abbr, price) values ('IN1', 400);
+insert into PRICES (abbr, price) values ('LS1', 10);
+insert into PRICES (abbr, price) values ('LU1', 10);
+insert into PRICES (abbr, price) values ('FW1', 100);
+insert into PRICES (abbr, price) values ('UN2', 100);
+insert into PRICES (abbr, price) values ('EF2', 40);
+insert into PRICES (abbr, price) values ('FO2', 160);
+insert into PRICES (abbr, price) values ('LO2', 200);
+insert into PRICES (abbr, price) values ('SH2', 20);
+insert into PRICES (abbr, price) values ('KN2', 40);
+insert into PRICES (abbr, price) values ('SM2', 20);
+insert into PRICES (abbr, price) values ('BA2', 20);
+insert into PRICES (abbr, price) values ('FA2', 80);
+insert into PRICES (abbr, price) values ('PR2', 20);
+insert into PRICES (abbr, price) values ('TH2', 80);
+insert into PRICES (abbr, price) values ('FP2', 15);
+insert into PRICES (abbr, price) values ('PP2', 15);
+insert into PRICES (abbr, price) values ('FF2', 30);
+insert into PRICES (abbr, price) values ('BP2', 10);
+insert into PRICES (abbr, price) values ('RE2', 50);
+insert into PRICES (abbr, price) values ('DS2', 100);
+insert into PRICES (abbr, price) values ('PO2', 20);
+insert into PRICES (abbr, price) values ('PU2', 40);
+insert into PRICES (abbr, price) values ('LS2', 40);
+insert into PRICES (abbr, price) values ('LU2', 40);
+insert into PRICES (abbr, price) values ('FW2', 200);
+insert into PRICES (abbr, price) values ('UN3', 200);
+insert into PRICES (abbr, price) values ('EF3', 80);
+insert into PRICES (abbr, price) values ('FO3', 320);
+insert into PRICES (abbr, price) values ('LO3', 400);
+insert into PRICES (abbr, price) values ('SH3', 60);
+insert into PRICES (abbr, price) values ('SM3', 40);
+insert into PRICES (abbr, price) values ('BA3', 40);
+insert into PRICES (abbr, price) values ('PR3', 100);
+insert into PRICES (abbr, price) values ('FP3', 75);
+insert into PRICES (abbr, price) values ('PP3', 75);
+insert into PRICES (abbr, price) values ('FF3', 100);
+insert into PRICES (abbr, price) values ('BP3', 50);
+insert into PRICES (abbr, price) values ('RE3', 100);
+insert into PRICES (abbr, price) values ('DS3', 200);
+insert into PRICES (abbr, price) values ('PO3', 50);
+insert into PRICES (abbr, price) values ('LS3', 100);
+insert into PRICES (abbr, price) values ('LU3', 100);
+insert into PRICES (abbr, price) values ('EF4', 160);
+insert into PRICES (abbr, price) values ('SH4', 150);
+insert into PRICES (abbr, price) values ('SM4', 100);
+insert into PRICES (abbr, price) values ('BA4', 100);
+insert into PRICES (abbr, price) values ('PR4', 150);
+insert into PRICES (abbr, price) values ('FP4', 112.5);
+insert into PRICES (abbr, price) values ('PP4', 112.5);
+insert into PRICES (abbr, price) values ('FF4', 150);
+insert into PRICES (abbr, price) values ('BP4', 75);
+insert into PRICES (abbr, price) values ('PO4', 100);
+insert into PRICES (abbr, price) values ('EF5', 320);
+insert into PRICES (abbr, price) values ('SH5', 300);
+insert into PRICES (abbr, price) values ('SM5', 200);
+insert into PRICES (abbr, price) values ('BA5', 200);
+insert into PRICES (abbr, price) values ('PO5', 200);

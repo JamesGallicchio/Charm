@@ -1,5 +1,3 @@
-
-
 create database if not exists CHARM;
 
 create table if not exists CHARM.ENCHANT_INFO
@@ -50,42 +48,17 @@ create table if not exists CHARM.ITEM_TREE
 
 create table if not exists CHARM.PRICES
 (
-  ench_level            INT not null,
-  unbreaking            INT,
-  efficiency            INT,
-  silk_touch            INT,
-  fortune               INT,
-  looting               INT,
-  sharpness             INT,
-  knockback             INT,
-  smite                 INT,
-  bane_of_arthropods    INT,
-  fire_aspect           INT,
-  protection            INT,
-  thorns                INT,
-  aqua_affinity         INT,
-  fire_protection       INT,
-  projectile_protection INT,
-  feather_falling       INT,
-  blast_protection      INT,
-  respiration           INT,
-  depth_strider         INT,
-  power                 INT,
-  punch                 INT,
-  flame                 INT,
-  infinity              INT,
-  luck_of_the_sea       INT,
-  lure                  INT,
-  frost_walker          INT,
-  primary key (ench_level)
+  abbr   VARCHAR(3) not null,
+  price  FLOAT not null,
+  primary key (abbr)
 );
 
 
 create table if not exists CHARM.STOCKING_RECORDS
 (
   recnum    INT not null auto_increment,
-  name      VARCHAR(20) not null, -- Name of enchanter
-  item_id   VARCHAR(20) not null, -- ID of enchanted item
+  name      VARCHAR(30) not null, -- Name of enchanter
+  item_id   VARCHAR(30) not null, -- ID of enchanted item
   payment   FLOAT not null,       -- Payment made for item
   date_time TIMESTAMP not null default current_timestamp,
   primary key (recnum)
