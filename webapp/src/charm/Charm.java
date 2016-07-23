@@ -118,8 +118,10 @@ public class Charm extends HttpServlet {
                 Statement idInfoStmt = conn.createStatement();
                 ResultSet idInfo = idInfoStmt.executeQuery("select parent, abbr from ITEM_TREE where id = \'" + id + "\'");
 
-                int parentId = idInfo.getInt(1);
-                String abbr = idInfo.getString(2);
+                while(idInfo.next()) {
+                    int parentId = idInfo.getInt(1);
+                    String abbr = idInfo.getString(2);
+                }
 
                 // Gets item type of this node-root path
                 if (parentId == 0) {
