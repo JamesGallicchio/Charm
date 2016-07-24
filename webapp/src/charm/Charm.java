@@ -170,6 +170,44 @@ public class Charm extends HttpServlet {
 
     }
 
+    private double priceOf(String i_id) throws Exception {
+
+        String itemID = itemIDCheck(i_id); // Check supplied ID for errors and fix order
+        ArrayList<String> abbreviations = new ArrayList<String>(); // List of ench abbrs
+        String item = itemID.substring(0, 3);
+
+        for (int i = 1; i < itemID.length()/3; i++) {
+            abbreviations.add(itemID.substring(3*i, 3*(i+1)));
+        }
+
+        Statement itemPriceStmt = conn.createStatement();
+        ResultSet itemPrice = itemPriceStmt.executeQuery("select price from ITEM_PRICES where abbr = \'" + item + "\'");
+
+        double price;
+
+        if(itemPrice.next()) {
+            price = itemPrice.getFloat(1);
+        } else throw new Exception(); // Custom exception saying item not in ITEM_PRICES
+
+        itemPrice.close();
+        itemPriceStmt.close();
+
+        for (String abbreviation : abbreviations) {
+
+            Statement enchPriceStmt = conn.createStatement();
+            ResultSet enchPrice = enchPriceStmt.executeQuery("select price from PRICES where abbr = \'" + abbreviation + "\'");
+
+            if(enchPrice.next()) {
+                price += enchPrice.getFloat(1);
+            } else throw new Exception(); //Custom exception saying ench not in PRICES or somethin
+
+            enchPrice.close();
+            enchPriceStmt.close();
+        }
+
+        return price;
+    }
+
     public void doGet (HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
