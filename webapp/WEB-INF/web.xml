@@ -22,34 +22,7 @@
         <resource-env-ref-name>jdbc/charm</resource-env-ref-name>
         <resource-env-type>javax.sql.DataSource</resource-env-type>
     </resource-env-ref>
-    
-    <servlet>
-        <servlet-name>TestServlet</servlet-name>
-        <jsp-file>/test.jsp</jsp-file>
-    </servlet>
 
-    <servlet>
-       <servlet-name>HelloWorld</servlet-name>
-       <servlet-class>charm.HelloWorld</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-       <servlet-name>HelloWorld</servlet-name>
-       <url-pattern>/HelloWorld</url-pattern>
-    </servlet-mapping>
-
-
-    <servlet>
-       <servlet-name>DatabaseTest</servlet-name>
-       <servlet-class>charm.DatabaseTest</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-       <servlet-name>DatabaseTest</servlet-name>
-       <url-pattern>/DBTest</url-pattern>
-    </servlet-mapping>
-    
-    
     <servlet>
        <servlet-name>Charm</servlet-name>
        <servlet-class>charm.Charm</servlet-class>
@@ -57,7 +30,7 @@
 
     <servlet-mapping>
        <servlet-name>Charm</servlet-name>
-       <url-pattern>/Charm</url-pattern>
+       <url-pattern>/Charm/*</url-pattern>
     </servlet-mapping>
     
 
