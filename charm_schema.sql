@@ -2,7 +2,7 @@ create database if not exists CHARM;
 
 create table if not exists CHARM.ENCHANT_INFO
 (
-  name      VARCHAR(25) not NULL,
+  name      VARCHAR(25) not null,
   abbr      VARCHAR(3) not null,
   max_level INT not null,
   primary key (name),
@@ -64,6 +64,9 @@ create table if not exists CHARM.STOCKING_RECORDS
   primary key (recnum)
 );
 
-
-
-
+create table if not exists CHARM.USERS
+(
+  name      VARCHAR(30) not null,
+  pass      VARCHAR(100) not null,
+  access    INT unsigned not null
+);

@@ -1,0 +1,27 @@
+				Permissions Numbers
+				-------------------
+Any permissions number is actually a decimal representation of a binary 16-bit number. Each
+bit of this binary number has an assigned permission, outlined below.
+
+Example: Gerli can use server admin tools, help with our monthly inventories, see our sales from last month, see their own stocking records, and check prices.
++-----------------------------------------------------------------------------------+
+| 1 | Use server administration tools (like restarting server)
+| 0 | Add items to stock
+| 0 | Unused
+| 1 | Input inventories (for monthly inventory or otherwise)
+| 0 | Unused
+| 0 | Input non-regular sales (discounts or to employees)
+| 0 | Unused
+| 0 | Edit needed item list
+| 0 | Unused
+| 1 | See monthly sales information
+| 0 | See others' stocking records
+| 1 | See own stocking records
+| 0 | Unused
+| 1 | Claim item completion in needed item list
+| 1 | See needed item list
+| 1 | Check prices
++-----------------------------------------------------------------------------------+
+1001000001010111 = 36951
+
+Gerli's permissions number is 36951!
