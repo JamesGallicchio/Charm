@@ -208,6 +208,40 @@ public class Charm extends HttpServlet {
         return price;
     }
 
+    private String addToStock (String name, String i_ids) throws Exception {
+
+        final double SELLPERCENT = 0.8;
+
+        if(i_ids == null || i_ids.isEmpty()) {
+            throw new Exception(); // Exception saying no item provided
+        }
+
+        String[] ids = (i_ids.indexOf(' ') == -1) ? new String[] {i_ids} : i_ids.split(" ");
+
+        double totalPrice = 0.0;
+
+        Statement idInfoStmt = conn.createStatement();
+        idInfoStmt.executeUpdate("START TRANSACTION");
+        idInfoStmt.executeUpdate("BEGIN WORK");
+
+        try {
+            for (String id : ids) {
+                double price = priceOf(id);
+                idInfoStmt.executeUpdate("insert into STOCKING_RECORDS (name, item_id, payment) values ('" + name + "', '" + id + "', " + SELLPERCENT * price + ")");
+                totalPrice += price;
+            }
+        } catch (Exception e) {
+            idInfoStmt.executeUpdate("ROLLBACK WORK");
+            idInfoStmt.close();
+            throw e;
+        }
+
+        idInfoStmt.executeUpdate("COMMIT WORK");
+        idInfoStmt.close();
+
+        return "/mail payment to:" + name + " message:Payment for " + Integer.toString(ids.length) + " items! amount:" + totalPrice;
+    }
+
     public void doGet (HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
@@ -231,6 +265,9 @@ public class Charm extends HttpServlet {
 
                     case "price": for (String item : param.getValue())
                             out.println(priceOf(item));
+                        break;
+
+                    case "stock": out.println(addToStock(param.getValue()[0], param.getValue()[1]));
                         break;
 
                     default: out.println("No support for this function yet, or you didn't ask right!");
