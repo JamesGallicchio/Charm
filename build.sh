@@ -29,7 +29,7 @@ javac -cp "${charmDir}/webapp/WEB-INF/lib/servlet-api.jar" -d "../WEB-INF/classe
 echo "== Deploying webapp (requires sudo)"
 cd "${charmDir}"
 sudo rm -R "${tomcatWebappLocation}/${webappName}"
-sudo cp -R "${charmDir}/webapp" "${tomcatWebappLocation}/${webappName}"
+sudo rsync -r --exclude=/src"${charmDir}/webapp" "${tomcatWebappLocation}/${webappName}"
 
 echo "== Restarting tomcat"
 sudo service tomcat7 restart
