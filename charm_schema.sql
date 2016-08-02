@@ -66,7 +66,9 @@ create table if not exists CHARM.STOCKING_RECORDS
 
 create table if not exists CHARM.USERS
 (
+  user_id   INT not null auto_increment,
   name      VARCHAR(30) not null,
-  pass      VARCHAR(100) not null,
-  access    INT unsigned not null
+  pass      VARCHAR(32) not null,
+  access    INT unsigned not null,
+  primary key (user_id)
 );
